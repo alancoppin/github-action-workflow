@@ -36,7 +36,7 @@ jobs:
             echo Setup NZ;
 
   UK-STAGING:
-    name: Base
+    name: UK
     needs: BASE-STAGING
     runs-on: ubuntu-latest
     environment:
@@ -53,7 +53,7 @@ jobs:
         
 
   production:
-    needs: [BASE_STAGING,NZ-STAGING,UK-STAGING]
+    needs: [BASE-STAGING,NZ-STAGING,UK-STAGING]
     name: Deploy to Production
     environment:
       name: production
