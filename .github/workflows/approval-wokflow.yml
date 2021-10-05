@@ -5,7 +5,7 @@ on:
 
 jobs:
   BASE-STAGING:
-    name: Base
+    name: Base Staging
     runs-on: ubuntu-latest
     environment:
       name: staging
@@ -20,7 +20,7 @@ jobs:
             echo Setup Env;
 
   NZ-STAGING:
-    name: NZ
+    name: NZ Staging
     needs: BASE-STAGING
     runs-on: ubuntu-latest
     environment:
@@ -36,7 +36,7 @@ jobs:
             echo Setup NZ;
 
   UK-STAGING:
-    name: UK
+    name: UK Staging
     needs: BASE-STAGING
     runs-on: ubuntu-latest
     environment:
@@ -50,23 +50,54 @@ jobs:
       - name: Setup UK
         run: |
             echo Setup UK;
-        
 
-  production:
+  BASE:
+    name: Base Production
     needs: [BASE-STAGING,NZ-STAGING,UK-STAGING]
-    name: Deploy to Production
+    runs-on: ubuntu-latest
     environment:
       name: production
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
 
-      - name: Setup Production
+      - name: Setup the Environment
         run: |
-            echo Setup Production;
+            echo Setup Env;
+
+  NZ:
+    name: NZ Production
+    needs: BASE
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Setup NZ
+        run: |
+            echo Setup NZ production;
+
+  UK:
+    name: UK Production
+    needs: BASE
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Setup UK
+        run: |
+            echo Setup UK;
         
 
   
