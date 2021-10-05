@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build
-    # PR must must be merged, not closed to trigger a deployment
-    # if: github.event.pull_request.merged
+  BASE-STAGING:
+    name: Base
     runs-on: ubuntu-latest
+    environment:
+      name: staging
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v2
@@ -19,25 +19,41 @@ jobs:
         run: |
             echo Setup Env;
 
-  staging:
-    needs: build
-    name: Deploy to Staging
+  NZ-STAGING:
+    name: NZ
+    needs: BASE-STAGING
+    runs-on: ubuntu-latest
     environment:
       name: staging
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
 
-      - name: Setup Staging
+      - name: Setup NZ
         run: |
-            echo Setup Staging;
+            echo Setup NZ;
+
+  UK-STAGING:
+    name: Base
+    needs: BASE-STAGING
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Setup UK
+        run: |
+            echo Setup UK;
         
 
   production:
-    needs: staging
+    needs: [BASE_STAGING,NZ-STAGING,UK-STAGING]
     name: Deploy to Production
     environment:
       name: production
