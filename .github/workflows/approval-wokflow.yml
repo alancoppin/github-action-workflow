@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  name: Build
-  # PR must must be merged, not closed to trigger a deployment
-  if: github.event.pull_request.merged
-  runs-on: ubuntu-latest
-  steps:
-    - name: Setup the Environment
-        
+  build:
+    name: Build
+    # PR must must be merged, not closed to trigger a deployment
+    if: github.event.pull_request.merged
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup the Environment
 
   staging:
     needs: build
