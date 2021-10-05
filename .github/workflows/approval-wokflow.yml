@@ -19,6 +19,8 @@ jobs:
           cache: 'yarn'
 
       - name: Setup the Environment
+        run: |
+            echo Setup Env;
 
   staging:
     needs: build
@@ -27,7 +29,17 @@ jobs:
       name: staging
     runs-on: ubuntu-latest
     steps:
-    - name: Staging Env
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+          cache: 'yarn'
+
+      - name: Setup Staging
+        run: |
+            echo Setup Staging;
         
 
   production:
@@ -37,7 +49,17 @@ jobs:
       name: production
     runs-on: ubuntu-latest
     steps:
-    - name: Production Env
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+          cache: 'yarn'
+
+      - name: Setup Production
+        run: |
+            echo Setup Production;
         
 
   
