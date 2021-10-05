@@ -6,7 +6,7 @@ on:
 jobs:
   name: Build
   # PR must must be merged, not closed to trigger a deployment
-  if: github.event.pull_request.merged
+  # if: github.event.pull_request.merged
   runs-on: ubuntu-latest
   steps:
     - name: Setup the Environment
@@ -18,7 +18,7 @@ jobs:
       name: staging
     runs-on: ubuntu-latest
     steps:
-    - name: Staging Env
+      - name: Staging Env
         
 
   production:
@@ -27,7 +27,7 @@ jobs:
       name: production
     runs-on: ubuntu-latest
     steps:
-    - name: Production Env
+      - name: Production Env
         
 
   
