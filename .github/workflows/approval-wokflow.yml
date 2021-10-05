@@ -10,33 +10,24 @@ jobs:
   runs-on: ubuntu-latest
   steps:
     - name: Setup the Environment
-        env:
-            TEST_VARIABLE: 'Setup Env'
-        run: |
-          echo "TEST_VARIABLE=$TEST_VARIABLE" > ///;
+        
 
   staging:
     needs: build
-    name: Deploy to Staging
+    environment: Deploy to Staging
       name: staging
     runs-on: ubuntu-latest
     steps:
     - name: Staging Env
-        env:
-            TEST_VARIABLE: 'Setup Env Staging'
-        run: |
-          echo "TEST_VARIABLE=$TEST_VARIABLE" > ///;
+        
 
   production:
     needs: staging
-    name: Deploy to Production
+    environment: Deploy to Production
       name: production
     runs-on: ubuntu-latest
     steps:
     - name: Production Env
-        env:
-            TEST_VARIABLE: 'Setup Env Production'
-        run: |
-          echo "TEST_VARIABLE=$TEST_VARIABLE" > ///;
+        
 
   
