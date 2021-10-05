@@ -1,5 +1,8 @@
 name: Approval workflow
 
+on:
+  workflow_dispatch:
+
 jobs:
   name: Build
   # PR must must be merged, not closed to trigger a deployment
