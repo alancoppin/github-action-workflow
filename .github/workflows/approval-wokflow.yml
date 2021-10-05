@@ -23,8 +23,6 @@ jobs:
     name: NZ Staging
     needs: BASE-STAGING
     runs-on: ubuntu-latest
-    environment:
-      name: staging
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v2
@@ -39,8 +37,6 @@ jobs:
     name: UK Staging
     needs: BASE-STAGING
     runs-on: ubuntu-latest
-    environment:
-      name: staging
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v2
@@ -71,8 +67,6 @@ jobs:
     name: NZ Production
     needs: BASE
     runs-on: ubuntu-latest
-    environment:
-      name: production
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v2
@@ -87,8 +81,6 @@ jobs:
     name: UK Production
     needs: BASE
     runs-on: ubuntu-latest
-    environment:
-      name: production
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v2
