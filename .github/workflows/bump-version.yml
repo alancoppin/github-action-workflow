@@ -2,7 +2,7 @@ name: Bump version
 on:
   push:
     branches:
-      - main
+      - stable
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,9 +13,10 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          release_branches: stable
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          name: Release/v${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
