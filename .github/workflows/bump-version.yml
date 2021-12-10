@@ -46,7 +46,12 @@ jobs:
       - name: Update package.json version
         env:
           TAG: ${{ steps.tag_version.outputs.new_tag }}
-        run: yarn version --new-version $TAG
+          GITHUB_USERNAME: alancoppin
+          GITHUB_EMAIL: alan.coppin@kathmandu.co.nz
+        run: |
+          git config --local user.email "$GITHUB_EMAIL"
+          git config --local user.name "$GITHUB_USERNAME"
+          yarn version --new-version $TAG
 
       - name: Update manifest.json version
         uses: sergeysova/jq-action@v2
