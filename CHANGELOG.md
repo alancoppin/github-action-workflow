@@ -1,12 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/alancoppin/github-approval-workflow/tree/HEAD)
+## [v0.0.18](https://github.com/alancoppin/github-approval-workflow/tree/v0.0.18) (2021-12-10)
 
-[Full Changelog](https://github.com/alancoppin/github-approval-workflow/compare/v0.0.17...HEAD)
+[Full Changelog](https://github.com/alancoppin/github-approval-workflow/compare/vv0.0.17...v0.0.18)
 
-**Merged pull requests:**
+## [vv0.0.17](https://github.com/alancoppin/github-approval-workflow/tree/vv0.0.17) (2021-12-10)
 
-- changelog [\#1](https://github.com/alancoppin/github-approval-workflow/pull/1) ([alancoppin](https://github.com/alancoppin))
+[Full Changelog](https://github.com/alancoppin/github-approval-workflow/compare/v0.0.17...vv0.0.17)
 
 ## [v0.0.17](https://github.com/alancoppin/github-approval-workflow/tree/v0.0.17) (2021-12-10)
 
