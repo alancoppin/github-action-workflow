@@ -56,7 +56,7 @@ jobs:
       - name: Update manifest.json version
         uses: sergeysova/jq-action@v2
         with: 
-          cmd: jq '.version = ${{ steps.tag_version.outputs.new_tag }}' static/manifest.json > tmp.$$.json && mv tmp.$$.json static/manifest.json
+          cmd: jq '.version = "${{ steps.tag_version.outputs.new_tag }}"' static/manifest.json > tmp.$$.json && mv tmp.$$.json static/manifest.json
 
       - name: Commit files
         run: |
