@@ -1,6 +1,6 @@
 {
   "name": "github-approval-workflow",
-  "version": "v0.0.15",
+  "version": "v0.0.16",
   "main": "index.js",
   "repository": "git@github.com:alancoppin/github-approval-workflow.git",
   "author": "Alan Coppin <alan.coppin@kathmandu.co.nz>",
