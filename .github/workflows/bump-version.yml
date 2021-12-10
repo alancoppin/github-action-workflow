@@ -52,7 +52,8 @@ jobs:
         uses: sergeysova/jq-action@v2
         env:
           TAG: ${{ steps.tag_version.outputs.new_tag }}
-        run: jq '.version = $tag' static/manifest.json > tmp.$$.json && mv tmp.$$.json static/manifest.json
+        with: 
+          cmd: jq '.version = $tag' static/manifest.json > tmp.$$.json && mv tmp.$$.json static/manifest.json
 
       - name: Commit files
         run: |
