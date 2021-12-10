@@ -58,7 +58,7 @@ jobs:
         env:
           TAG: ${{ steps.tag_version.outputs.new_tag }}
         with: 
-          cmd: jq '.version = $tag' static/manifest.json > tmp.$$.json && mv tmp.$$.json static/manifest.json
+          cmd: jq '.version = $TAG' static/manifest.json > tmp.$$.json && mv tmp.$$.json static/manifest.json
 
       - name: Commit files
         run: |
