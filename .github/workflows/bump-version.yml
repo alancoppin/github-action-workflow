@@ -37,7 +37,7 @@ jobs:
           gem install github_changelog_generator
           AUTH=$(echo $GITHUB_REPOSITORY | sed -e 's/\// /g' | awk '{print "--user " $1 " --project " $2}')
           echo $AUTH
-          github_changelog_generator $AUTH --no-unreleased
+          github_changelog_generator $AUTH github-changelog-generator -p ActionSheetPicker-3.0
       # - name: Update _version.py
       #   env:
       #     TAG: ${{ steps.tag_version.outputs.new_tag }}
