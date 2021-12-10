@@ -21,8 +21,8 @@ jobs:
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
         with:
-          github-token: ${{ secrets.github_token }}
-          output-file: "CHANGELOG.md"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          release-count: 0
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
@@ -51,15 +51,15 @@ jobs:
       #     echo $AUTH
       #     github_changelog_generator $AUTH --no-unreleased --simple-list true --release-branch stable
 
-      - name: Update package.json version
-        env:
-          TAG: ${{ steps.tag_version.outputs.new_tag }}
-          GITHUB_USERNAME: alancoppin
-          GITHUB_EMAIL: alan.coppin@kathmandu.co.nz
-        run: |
-          git config --local user.email "$GITHUB_EMAIL"
-          git config --local user.name "$GITHUB_USERNAME"
-          yarn version --new-version $TAG
+      # - name: Update package.json version
+      #   env:
+      #     TAG: ${{ steps.tag_version.outputs.new_tag }}
+      #     GITHUB_USERNAME: alancoppin
+      #     GITHUB_EMAIL: alan.coppin@kathmandu.co.nz
+      #   run: |
+      #     git config --local user.email "$GITHUB_EMAIL"
+      #     git config --local user.name "$GITHUB_USERNAME"
+      #     yarn version --new-version $TAG
 
       - name: Update manifest.json version
         uses: sergeysova/jq-action@v2
