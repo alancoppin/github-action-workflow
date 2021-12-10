@@ -9,18 +9,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           release_branches: stable
+
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release/${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
+
       ## UPDATE CHANGELOG
       - uses: actions/checkout@v2
         with:
@@ -30,6 +33,7 @@ jobs:
         with:
           ruby-version: 2.6 # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
       - name: Generate CHANGELOG
         env:
           CHANGELOG_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -37,13 +41,19 @@ jobs:
           gem install github_changelog_generator
           AUTH=$(echo $GITHUB_REPOSITORY | sed -e 's/\// /g' | awk '{print "--user " $1 " --project " $2}')
           echo $AUTH
-          github_changelog_generator $AUTH github-changelog-generator -p ActionSheetPicker-3.0
-      # - name: Update _version.py
-      #   env:
-      #     TAG: ${{ steps.tag_version.outputs.new_tag }}
-      #   run: |
-      #     folder=`dirname $(find . -name _version.py)`
-      #     echo "__version__ = \"$TAG\"" > $folder/_version.py
+          github_changelog_generator $AUTH --no-unreleased
+
+      - name: Update package.json version
+        env:
+          TAG: ${{ steps.tag_version.outputs.new_tag }}
+        run: yarn version --new-version $TAG
+
+      - name: Update manifest.json version
+        uses: sergeysova/jq-action@v2
+        env:
+          TAG: ${{ steps.tag_version.outputs.new_tag }}
+        run: jq '.version = $tag' static/manifest.json > tmp.$$.json && mv tmp.$$.json static/manifest.json
+
       - name: Commit files
         run: |
           git config --local user.email "$GITHUB_EMAIL"
@@ -52,11 +62,13 @@ jobs:
         env:
           GITHUB_USERNAME: alancoppin
           GITHUB_EMAIL: alan.coppin@kathmandu.co.nz
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+
       - name: Update stable branch
         uses: ad-m/github-push-action@master
         with:
