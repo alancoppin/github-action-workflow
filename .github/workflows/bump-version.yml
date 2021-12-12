@@ -26,15 +26,14 @@ jobs:
 
       - name: Changelog
         uses: scottbrenner/generate-changelog-action@master
-        id: Changelog
+        id: changelog
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
         with:
           tag: ${{ steps.changelog.outputs.tag }}
           name: Release/${{ steps.changelog.outputs.tag }}
-          body: ${{ steps.changelog.outputs.clean_changelog }}
+          body: ${{ steps.changelog.outputs.changelog }}
           generateReleaseNotes: true
 
       ## UPDATE CHANGELOG
