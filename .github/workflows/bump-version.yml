@@ -17,16 +17,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           release_branches: main
 
-      # - name: Conventional Changelog Action
-      #   id: changelog
-      #   uses: TriPSs/conventional-changelog-action@v3
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     release-count: 0
-
-      - name: Changelog
-        uses: scottbrenner/generate-changelog-action@master
-        id: Changelog
+      - name: Generate changelog
+        id: changelog
+        uses: metcalfc/changelog-generator@v3.0.0
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
         id: create_release
@@ -34,20 +29,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{ steps.tag_version.outputs.tag }}
-          release_name: Release/${{ steps.tag_version.outputs.tag }}
-          body: |
-            ${{ steps.Changelog.outputs.changelog }}
+          tag_name: ${{ steps.tag_version.outputs.new_tag }}
+          release_name: Release/${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false
-
-      # - name: Create a GitHub release
-      #   uses: ncipollo/release-action@v1
-      #   with:
-      #     tag: ${{ steps.changelog.outputs.tag }}
-      #     name: Release/${{ steps.changelog.outputs.tag }}
-      #     body: ${{ steps.changelog.outputs.changelog }}
-      #     generateReleaseNotes: true
 
       ## UPDATE CHANGELOG
       # - uses: actions/checkout@v2
