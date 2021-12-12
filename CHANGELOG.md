@@ -1,5 +1,13 @@
 # Changelog
 
+## [v0.0.19](https://github.com/alancoppin/github-approval-workflow/tree/v0.0.19) (2021-12-12)
+
+[Full Changelog](https://github.com/alancoppin/github-approval-workflow/compare/vv0.0.18...v0.0.19)
+
+## [vv0.0.18](https://github.com/alancoppin/github-approval-workflow/tree/vv0.0.18) (2021-12-10)
+
+[Full Changelog](https://github.com/alancoppin/github-approval-workflow/compare/v0.0.18...vv0.0.18)
+
 ## [v0.0.18](https://github.com/alancoppin/github-approval-workflow/tree/v0.0.18) (2021-12-10)
 
 [Full Changelog](https://github.com/alancoppin/github-approval-workflow/compare/vv0.0.17...v0.0.18)
