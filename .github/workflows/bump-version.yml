@@ -15,7 +15,7 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          release_branches: stable
+          release_branches: main
 
       # - name: Conventional Changelog Action
       #   id: changelog
