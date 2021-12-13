@@ -39,7 +39,8 @@ jobs:
           draft: false
           prerelease: false
 
-       - uses: rhysd/changelog-from-release/action@v2
+      - name: Changelog update
+      - uses: rhysd/changelog-from-release/action@v2
         with:
           file: CHANGELOG.md
           github_token: ${{ secrets.GITHUB_TOKEN }}
