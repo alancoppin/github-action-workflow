@@ -2,7 +2,7 @@ name: Approval workflow
 
 on:
   push:
-    branches: stable
+    branches: main
 
 jobs:
   BASE-STAGING:
@@ -62,7 +62,7 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          release_branches: stable
+          release_branches: main
 
       - name: Build Changelog
         id: github_release
@@ -133,17 +133,3 @@ jobs:
       - name: Setup UK
         run: |
             echo Setup UK;
-
-  CREATE-PR:
-    name: Create Pull Request to main
-    needs: [UK,NZ]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: peter-evans/create-pull-request@v3
-        with:
-          title: Sync main with stable
-          labels: automated
-          reviewers: alancoppin
-          base: main
-          branch: stable
