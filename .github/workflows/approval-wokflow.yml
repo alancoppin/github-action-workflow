@@ -51,6 +51,8 @@ jobs:
     name: Automated release
     needs: [BASE-STAGING,NZ-STAGING,UK-STAGING]
     runs-on: ubuntu-latest
+    environment:
+      name: production
     steps:
       - uses: actions/checkout@v2
 
