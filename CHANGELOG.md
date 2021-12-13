@@ -1,3 +1,25 @@
+<a name="v0.0.26"></a>
+# [Release/v0.0.26 (v0.0.26)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.26) - 13 Dec 2021
+
+### 🚀 Features
+
+- **https:**//github.com/alancoppin/github-action-workflow/pull/6 This is another issue alancoppin
+
+### 🐛 Fixes
+
+- **https:**//github.com/alancoppin/github-action-workflow/pull/5 Fix issue file html alancoppin
+
+
+
+<details>
+<summary>Uncategorized</summary>
+
+
+</details>
+
+[Changes][v0.0.26]
+
+
 <a name="v0.0.25"></a>
 # [Release/v0.0.25 (v0.0.25)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.25) - 13 Dec 2021
 
@@ -211,6 +233,7 @@
 [Changes][v0.0.3]
 
 
+[v0.0.26]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.25...v0.0.26
 [v0.0.25]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.24...v0.0.25
 [v0.0.24]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.23...v0.0.24
 [v0.0.23]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.22...v0.0.23
