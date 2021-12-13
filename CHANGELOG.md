@@ -1,3 +1,27 @@
+<a name="v0.0.30"></a>
+# [Release/v0.0.30 (v0.0.30)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.30) - 13 Dec 2021
+
+- no changes
+
+[Changes][v0.0.30]
+
+
+<a name="v0.0.29"></a>
+# [Release/v0.0.29 (v0.0.29)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.29) - 13 Dec 2021
+
+- no changes
+
+[Changes][v0.0.29]
+
+
+<a name="v0.0.28"></a>
+# [Release/v0.0.28 (v0.0.28)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.28) - 13 Dec 2021
+
+- no changes
+
+[Changes][v0.0.28]
+
+
 <a name="v0.0.27"></a>
 # [Release/v0.0.27 (v0.0.27)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.27) - 13 Dec 2021
 
@@ -241,6 +265,9 @@
 [Changes][v0.0.3]
 
 
+[v0.0.30]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.29...v0.0.30
+[v0.0.29]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.28...v0.0.29
+[v0.0.28]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.27...v0.0.28
 [v0.0.27]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.26...v0.0.27
 [v0.0.26]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.25...v0.0.26
 [v0.0.25]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.24...v0.0.25
