@@ -136,7 +136,7 @@ jobs:
 
   CREATE-PR:
     - name: Create Pull Request to main
-      needs: BASE
+      needs: [UK,NZ]
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
