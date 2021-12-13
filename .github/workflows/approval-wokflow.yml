@@ -141,9 +141,9 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - uses: peter-evans/create-pull-request@v3
-            with:
-              title: Sync main with stable
-              labels: automated
-              reviewers: alancoppin
-              base: main
-              branch: stable
+          with:
+            title: Sync main with stable
+            labels: automated
+            reviewers: alancoppin
+            base: main
+            branch: stable
