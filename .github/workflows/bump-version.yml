@@ -25,29 +25,6 @@ jobs:
           head-ref: ${{ steps.tag_version.outputs.new_tag }}
           base-ref: ${{ steps.tag_version.outputs.previous_tag }}
 
-      - name: Get the changelog
-        run: |
-          cat << "EOF"
-          ${{ steps.changelog.outputs.changelog }}
-          EOF
-      - name: Modify the changelog
-        id: modified
-        run: |
-          set -o noglob
-          log=$(cat << "EOF" | grep -v Bumping | tac
-          ${{ steps.changelog.outputs.changelog }}
-          EOF
-          )
-          log="${log//'%'/'%25'}"
-          log="${log//$'\n'/'%0A'}"
-          log="${log//$'\r'/'%0D'}"
-          echo "::set-output name=modified::$log"
-      - name: Print the modified changelog
-        run: |
-          cat << "EOF"
-          ${{ steps.modified.outputs.modified }}
-          EOF
-
       - name: Create Release
         id: create_release
         uses: actions/create-release@latest
@@ -56,11 +33,14 @@ jobs:
         with:
           tag_name: ${{ steps.tag_version.outputs.new_tag }}
           release_name: Release/${{ steps.tag_version.outputs.new_tag }}
-          body: |
-            ${{ steps.modified.outputs.modified }}
-            ${{ steps.changelog.outputs.changelog }}
+          body: ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false
+
+      - name: Update changelog
+        uses: thomaseizinger/keep-a-changelog-new-release@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
 
       ## UPDATE CHANGELOG
       # - uses: actions/checkout@v2
