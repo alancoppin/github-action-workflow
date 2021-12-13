@@ -31,6 +31,7 @@ jobs:
         with:
           fromTag: ${{ steps.tag_version.outputs.previous_tag }}
           toTag: ${{ steps.tag_version.outputs.new_tag }}
+          configuration: "configuration.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
