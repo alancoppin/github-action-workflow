@@ -37,6 +37,29 @@ jobs:
           draft: false
           prerelease: false
 
+      - name: Get the changelog
+        run: |
+          cat << "EOF"
+          ${{ steps.changelog.outputs.changelog }}
+          EOF
+      - name: Modify the changelog
+        id: modified
+        run: |
+          set -o noglob
+          log=$(cat << "EOF" | grep -v Bumping | tac
+          ${{ steps.changelog.outputs.changelog }}
+          EOF
+          )
+          log="${log//'%'/'%25'}"
+          log="${log//$'\n'/'%0A'}"
+          log="${log//$'\r'/'%0D'}"
+          echo "::set-output name=modified::$log"
+      - name: Print the modified changelog
+        run: |
+          cat << "EOF"
+          ${{ steps.modified.outputs.modified }}
+          EOF
+
       ## UPDATE CHANGELOG
       # - uses: actions/checkout@v2
       #   with:
