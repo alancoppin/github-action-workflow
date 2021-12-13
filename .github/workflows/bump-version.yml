@@ -47,10 +47,10 @@ jobs:
           draft: false
           prerelease: false
 
-      # - name: Update changelog
-      #   uses: thomaseizinger/keep-a-changelog-new-release@v1
-      #   with:
-      #     tag: ${{ steps.tag_version.outputs.new_tag }}
+      - uses: vemel/update-changelog@0.0.1
+        id: changelog
+        with:
+          version: ${{ steps.version.outputs.version }}
 
       ## UPDATE CHANGELOG
       # - uses: actions/checkout@v2
