@@ -95,8 +95,6 @@ jobs:
     name: Base Production
     needs: AUTOMATED-RELEASE
     runs-on: ubuntu-latest
-    environment:
-      name: production
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v2
