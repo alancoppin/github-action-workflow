@@ -39,7 +39,7 @@ jobs:
           draft: false
           prerelease: false
 
-      - uses: rhysd/changelog-from-release/action@v2
+       - uses: rhysd/changelog-from-release/action@v2
         with:
           file: CHANGELOG.md
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -58,7 +58,14 @@ jobs:
           GITHUB_USERNAME: alancoppin
           GITHUB_EMAIL: alan.coppin@kathmandu.co.nz
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          commit-message: Update version & changelog
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
+      - name: Update stable branch
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
