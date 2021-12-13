@@ -1,3 +1,38 @@
+<a name="v0.0.19"></a>
+# [Release/v0.0.19 (v0.0.19)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.19) - 13 Dec 2021
+
+- no changes
+
+[Changes][v0.0.19]
+
+
+<a name="v0.0.18"></a>
+# [Release/v0.0.18 (v0.0.18)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.18) - 13 Dec 2021
+
+## 🚀 Features
+
+- Adding file
+   - PR: #3
+
+
+
+<details>
+<summary>Uncategorized</summary>
+
+
+</details>
+
+[Changes][v0.0.18]
+
+
+<a name="v0.0.17"></a>
+# [Release/v0.0.17 (v0.0.17)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.17) - 13 Dec 2021
+
+- no changes
+
+[Changes][v0.0.17]
+
+
 <a name="v0.0.16"></a>
 # [Release/v0.0.16 (v0.0.16)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.16) - 13 Dec 2021
 
@@ -118,6 +153,9 @@
 [Changes][v0.0.3]
 
 
+[v0.0.19]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.18...v0.0.19
+[v0.0.18]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.17...v0.0.18
+[v0.0.17]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.16...v0.0.17
 [v0.0.16]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.15...v0.0.16
 [v0.0.15]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.14...v0.0.15
 [v0.0.14]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.13...v0.0.14
