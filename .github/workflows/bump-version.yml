@@ -45,28 +45,22 @@ jobs:
           file: CHANGELOG.md
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update manifest.json version
-        uses: sergeysova/jq-action@v2
-        with: 
-          cmd: jq '.version = "${{ steps.tag_version.outputs.new_tag }}"' static/manifest.json > tmp.$$.json && mv tmp.$$.json static/manifest.json
+      # - name: Update manifest.json version
+      #   uses: sergeysova/jq-action@v2
+      #   with: 
+      #     cmd: jq '.version = "${{ steps.tag_version.outputs.new_tag }}"' static/manifest.json > tmp.$$.json && mv tmp.$$.json static/manifest.json
 
-      - name: Commit files
-        run: |
-          git config --local user.email "$GITHUB_EMAIL"
-          git config --local user.name "$GITHUB_USERNAME"
-          git commit -m "doc(CHANGELOG): update" -a
-        env:
-          GITHUB_USERNAME: alancoppin
-          GITHUB_EMAIL: alan.coppin@kathmandu.co.nz
+      # - name: Commit files
+      #   run: |
+      #     git config --local user.email "$GITHUB_EMAIL"
+      #     git config --local user.name "$GITHUB_USERNAME"
+      #     git commit -m "doc(CHANGELOG): update" -a
+      #   env:
+      #     GITHUB_USERNAME: alancoppin
+      #     GITHUB_EMAIL: alan.coppin@kathmandu.co.nz
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-
-      - name: Update stable branch
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: ${{ github.ref }}
