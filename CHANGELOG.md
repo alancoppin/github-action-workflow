@@ -1,3 +1,16 @@
+<a name="v0.0.31"></a>
+# [Release/v0.0.31 (v0.0.31)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.31) - 15 Dec 2021
+
+<details>
+<summary>Uncategorized</summary>
+
+- [10](https://github.com/alancoppin/github-action-workflow/pull/10) Release/v0.0.30 alancoppin
+
+</details>
+
+[Changes][v0.0.31]
+
+
 <a name="v0.0.30"></a>
 # [Release/v0.0.30 (v0.0.30)](https://github.com/alancoppin/github-action-workflow/releases/tag/v0.0.30) - 13 Dec 2021
 
@@ -265,6 +278,7 @@
 [Changes][v0.0.3]
 
 
+[v0.0.31]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.30...v0.0.31
 [v0.0.30]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.29...v0.0.30
 [v0.0.29]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.28...v0.0.29
 [v0.0.28]: https://github.com/alancoppin/github-action-workflow/compare/v0.0.27...v0.0.28
